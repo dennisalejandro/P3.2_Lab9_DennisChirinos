@@ -9,7 +9,7 @@ using namespace std;
 		this->ID = id;
 	}
 	int Melee::getID() {
-		return this->ID;
+		return 1;
 	}
 	int Melee::getType() {
 		return 0;

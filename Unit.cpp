@@ -50,3 +50,6 @@ using namespace std;
 		str += to_string(getHealth())+to_string(getDef())+to_string(getSpeed())+to_string(getStr());
 		return str;
 	}
+	int Unit::getID() {
+		return 0;
+	}

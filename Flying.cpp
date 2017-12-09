@@ -9,7 +9,7 @@ using namespace std;
 		this->ID = id;
 	}
 	int Flying::getID() {
-		return this->ID;
+		return 2;
 	}
 	int Flying::getType() {
 		return 0;

@@ -25,4 +25,5 @@ class Unit {
 		int getStr();
 		int getSpAtk();
 		virtual string toString();
+		virtual int getID();
 };

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <random>
+#include <fstream>
 #include "Unit.h"
 #include "Range.h"
 #include "Bro.h"
@@ -14,6 +16,7 @@
 #include "Squad.h"
 
 using namespace std;
+void WriteLog(string);
 int main() {
 	int op = 0;
 	vector<Squad*>* vSquad = new vector<Squad*>();
@@ -37,6 +40,8 @@ int main() {
 				cout << "6) Magikoopa\n";
 				cin >> opA;
 				int HP;
+				cout << "Ingrese HP \n";
+				cin >> HP;
 				string Something;
 				cout << "Ingrese su ";
 				switch (opA) {
@@ -56,7 +61,7 @@ int main() {
 							HP = 20;	
 						}
 						Chomp* G = new Chomp(Something, HP);
-						//vUnit->push_back(G);
+						vUnit->push_back(G);
 					} break;
 					case 3: {
 						cout << "Color \n";
@@ -100,14 +105,14 @@ int main() {
 				int NumCap;
 				int NumSq;
 				for (int i = 0;i<vUnit->size();i++) {
-					cout << vUnit->at(i)->toString();
+					cout << vUnit->at(i)->toString() << "\n";
 				}
 				cout << "Elije capitan \n";
 				cin >> NumCap;
 				
 				Squad* S = new Squad(vUnit->at(NumCap));
 				for (int i = 0;i<6;i++) {
-					cout << "Elige Miembro numero " << i << "\n";
+					cout << "Elige Miembro numero " << (i+1) << "\n";
 					cin >> NumSq;
 					S->getEquipo()->push_back(vUnit->at(NumSq));
 				}
@@ -120,8 +125,8 @@ int main() {
 			} break;
 			case 4: {
 				cout << "Ingrese Equipo 1\n";
-				int NumTeam1;
-				int NumTeam2;
+				int NumTeam1 = 0;
+				int NumTeam2 = 0;
 				for (int i = 0;i<vSquad->size();i++) {
 					cout << vSquad->at(i)->toString();
 				}
@@ -129,12 +134,88 @@ int main() {
 				cout << "Ingrese Equipo 2\n";
 				cin >> NumTeam2;
 				vector<Unit> Team1;
+				int Team1Wins;
 				vector<Unit> Team2;
+				int Team2Wins;
 				for (int i = 0;i<vSquad->at(NumTeam1)->getEquipo()->size();i++) {
+					//cout << "n";
 					Team1.push_back(*vSquad->at(NumTeam1)->getEquipo()->at(i));
+				}
+				for (int i = 0;i<vSquad->at(NumTeam2)->getEquipo()->size();i++) {
+					//cout << "m";
+					Team2.push_back(*vSquad->at(NumTeam1)->getEquipo()->at(i));
+				}
+				//start battle
+				WriteLog("///////////////\n");
+				for (int i = 0;i<6;i++) {
+					int Break = 0;
+					while ((Team1.at(i).getHealth()>=0)||(Team2.at(i).getHealth()>=0)) {
+						Break++;
+						WriteLog("Pelea: "+to_string(i)+"\n");
+						//turn team 1
+						int atk = Team1.at(i).getStr();
+						if ((Team1.at(i).getID()==1)&&(Team2.at(i).getID()==2)) {
+							atk = atk*1.5;
+						}
+						if ((Team1.at(i).getID()==2)&&(Team2.at(i).getID()==3)) {
+							atk = atk*1.5;
+						}
+						if ((Team1.at(i).getID()==3)&&(Team2.at(i).getID()==1)) {
+							atk = atk*1.5;
+						}
+						int Rndom = rand() % 5;
+						if (true) {
+							Team2.at(i).setHealth(Team2.at(i).getHealth()-(atk-Team2.at(i).getDef()));
+							WriteLog("El miembro "+to_string(i)+" del equipo 1 ataco por: "+to_string(atk)+"\n");
+							cout << ("El miembro "+to_string(i)+" del equipo 1 ataco por: "+to_string(atk)+"\n");
+							WriteLog("HP restante es: "+to_string(Team1.at(i).getHealth())+"\n");
+							cout << ("HP restante es: "+to_string(Team1.at(i).getHealth())+"\n");
+						}
+						//turn team 2
+						atk = Team2.at(i).getStr();
+						if ((Team2.at(i).getID()==1)&&(Team1.at(i).getID()==2)) {
+							atk = atk*1.5;
+						}
+						if ((Team2.at(i).getID()==2)&&(Team1.at(i).getID()==3)) {
+							atk = atk*1.5;
+						}
+						if ((Team2.at(i).getID()==3)&&(Team1.at(i).getID()==1)) {
+							atk = atk*1.5;
+						}
+						Rndom = rand() % 5;
+						if (true) {
+							Team1.at(i).setHealth(Team1.at(i).getHealth()-(atk-Team1.at(i).getDef()));
+							WriteLog("El miembro "+to_string(i)+" del equipo 2 ataco por: "+to_string(atk)+"\n");
+							WriteLog("HP restante es: "+to_string(Team1.at(i).getHealth())+"\n");
+						}
+						// check if dead
+						if (Team2.at(i).getHealth()<=0) {
+							Team1Wins++;
+						}
+						if (Team1.at(i).getHealth()<=0) {
+							Team2Wins++;
+						}
+						if (Break >= 99) {
+							cout << "breaked \n";
+							break;
+						}
+					}
+					cout << "Team 1 tiene: " << Team1Wins << "\n";
+					cout << "Team 2 tiene: " << Team2Wins << "\n";
 				}
 			} break;
 		}
 	}
+	for (int i = 0;i<vUnit->size();i++) {
+		delete vUnit->at(i);
+	}
+	delete vUnit;
+	delete vSquad;
 	return 0;
+}
+void WriteLog(string text) {
+	ofstream File;
+	File.open("log.txt", ios::out | ios::app );
+	File << text;
+	File.close();
 }

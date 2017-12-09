@@ -21,7 +21,7 @@ using namespace std;
 		return this->Equipo;
 	}
 	string Squad::toString() {
-		string str = "";
+		string str = "Equipo: \n";
 		for (int i = 0;i<getEquipo()->size();i++) {
 			str += getEquipo()->at(i)->toString();
 			str += "\n";

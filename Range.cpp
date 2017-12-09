@@ -9,7 +9,7 @@ using namespace std;
 		this->ID = id;
 	}
 	int Range::getID() {
-		return this->ID;
+		return 3;
 	}
 	int Range::getType() {
 		return 0;

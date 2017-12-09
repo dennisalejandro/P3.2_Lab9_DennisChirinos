@@ -10,6 +10,6 @@ using namespace std;
 	}
 	string Bro::toString() {
 		string str = "Hammer Bro: ";
-		str += to_string(getHealth())+to_string(getDef())+to_string(getSpeed())+to_string(getStr());
+		str += to_string(getHealth())+", "+to_string(getDef())+", "+to_string(getSpeed())+", "+to_string(getStr());
 		return str;
 	}

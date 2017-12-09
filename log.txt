@@ -1,0 +1,121 @@
+///////////////
+Pelea: 0
+El miembro 0 del equipo 1 ataco por: 10
+HP restante es: 30
+El miembro 0 del equipo 2 ataco por: 10
+HP restante es: 20
+Pelea: 0
+El miembro 0 del equipo 1 ataco por: 10
+HP restante es: 20
+El miembro 0 del equipo 2 ataco por: 10
+HP restante es: 10
+Pelea: 0
+El miembro 0 del equipo 1 ataco por: 10
+HP restante es: 10
+El miembro 0 del equipo 2 ataco por: 10
+HP restante es: 0
+Pelea: 0
+El miembro 0 del equipo 1 ataco por: 10
+HP restante es: 0
+El miembro 0 del equipo 2 ataco por: 10
+HP restante es: -10
+Pelea: 1
+El miembro 1 del equipo 1 ataco por: 10
+HP restante es: 30
+El miembro 1 del equipo 2 ataco por: 10
+HP restante es: 20
+Pelea: 1
+El miembro 1 del equipo 1 ataco por: 10
+HP restante es: 20
+El miembro 1 del equipo 2 ataco por: 10
+HP restante es: 10
+Pelea: 1
+El miembro 1 del equipo 1 ataco por: 10
+HP restante es: 10
+El miembro 1 del equipo 2 ataco por: 10
+HP restante es: 0
+Pelea: 1
+El miembro 1 del equipo 1 ataco por: 10
+HP restante es: 0
+El miembro 1 del equipo 2 ataco por: 10
+HP restante es: -10
+Pelea: 2
+El miembro 2 del equipo 1 ataco por: 10
+HP restante es: 30
+El miembro 2 del equipo 2 ataco por: 10
+HP restante es: 20
+Pelea: 2
+El miembro 2 del equipo 1 ataco por: 10
+HP restante es: 20
+El miembro 2 del equipo 2 ataco por: 10
+HP restante es: 10
+Pelea: 2
+El miembro 2 del equipo 1 ataco por: 10
+HP restante es: 10
+El miembro 2 del equipo 2 ataco por: 10
+HP restante es: 0
+Pelea: 2
+El miembro 2 del equipo 1 ataco por: 10
+HP restante es: 0
+El miembro 2 del equipo 2 ataco por: 10
+HP restante es: -10
+Pelea: 3
+El miembro 3 del equipo 1 ataco por: 10
+HP restante es: 30
+El miembro 3 del equipo 2 ataco por: 10
+HP restante es: 20
+Pelea: 3
+El miembro 3 del equipo 1 ataco por: 10
+HP restante es: 20
+El miembro 3 del equipo 2 ataco por: 10
+HP restante es: 10
+Pelea: 3
+El miembro 3 del equipo 1 ataco por: 10
+HP restante es: 10
+El miembro 3 del equipo 2 ataco por: 10
+HP restante es: 0
+Pelea: 3
+El miembro 3 del equipo 1 ataco por: 10
+HP restante es: 0
+El miembro 3 del equipo 2 ataco por: 10
+HP restante es: -10
+Pelea: 4
+El miembro 4 del equipo 1 ataco por: 10
+HP restante es: 30
+El miembro 4 del equipo 2 ataco por: 10
+HP restante es: 20
+Pelea: 4
+El miembro 4 del equipo 1 ataco por: 10
+HP restante es: 20
+El miembro 4 del equipo 2 ataco por: 10
+HP restante es: 10
+Pelea: 4
+El miembro 4 del equipo 1 ataco por: 10
+HP restante es: 10
+El miembro 4 del equipo 2 ataco por: 10
+HP restante es: 0
+Pelea: 4
+El miembro 4 del equipo 1 ataco por: 10
+HP restante es: 0
+El miembro 4 del equipo 2 ataco por: 10
+HP restante es: -10
+Pelea: 5
+El miembro 5 del equipo 1 ataco por: 10
+HP restante es: 30
+El miembro 5 del equipo 2 ataco por: 10
+HP restante es: 20
+Pelea: 5
+El miembro 5 del equipo 1 ataco por: 10
+HP restante es: 20
+El miembro 5 del equipo 2 ataco por: 10
+HP restante es: 10
+Pelea: 5
+El miembro 5 del equipo 1 ataco por: 10
+HP restante es: 10
+El miembro 5 del equipo 2 ataco por: 10
+HP restante es: 0
+Pelea: 5
+El miembro 5 del equipo 1 ataco por: 10
+HP restante es: 0
+El miembro 5 del equipo 2 ataco por: 10
+HP restante es: -10
