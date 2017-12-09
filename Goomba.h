@@ -9,4 +9,5 @@ class Goomba : public Melee {
 		Goomba(string, int);
 		virtual int getType();
 		virtual string toString();
+		virtual int getSpAtk();
 };

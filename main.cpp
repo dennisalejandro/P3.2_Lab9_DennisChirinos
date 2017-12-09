@@ -21,11 +21,12 @@ int main() {
 	int op = 0;
 	vector<Squad*>* vSquad = new vector<Squad*>();
 	vector<Unit*>* vUnit = new vector<Unit*>();
-	while (op!=7) {
+	while (op!=5) {
 		cout << "1) Crear Minion\n";
 		cout << "2) Crear Equipo\n";
 		cout << "3) Eliminar Minion\n";		
 		cout << "4) Simular Batalla\n";
+		cout << "5) Salir\n";
 		cin >> op;
 		switch (op) {
 			int opA;
@@ -111,15 +112,19 @@ int main() {
 				cin >> NumCap;
 				
 				Squad* S = new Squad(vUnit->at(NumCap));
+				vUnit->erase(vUnit->begin()+NumCap);
 				for (int i = 0;i<6;i++) {
 					cout << "Elige Miembro numero " << (i+1) << "\n";
 					cin >> NumSq;
 					S->getEquipo()->push_back(vUnit->at(NumSq));
+					vUnit->erase(vUnit->begin()+NumSq);
 				}
 				vSquad->push_back(S);
 			} break;
 			case 3: {
+				int who;
 				cout << "Cambiar color/Tamaño de quien? \n";
+				cin >> who;
 				string Something;
 				cin >> Something;
 			} break;
@@ -134,9 +139,9 @@ int main() {
 				cout << "Ingrese Equipo 2\n";
 				cin >> NumTeam2;
 				vector<Unit> Team1;
-				int Team1Wins;
+				int Team1Wins = 0;
 				vector<Unit> Team2;
-				int Team2Wins;
+				int Team2Wins = 0;
 				for (int i = 0;i<vSquad->at(NumTeam1)->getEquipo()->size();i++) {
 					//cout << "n";
 					Team1.push_back(*vSquad->at(NumTeam1)->getEquipo()->at(i));
@@ -154,22 +159,25 @@ int main() {
 						WriteLog("Pelea: "+to_string(i)+"\n");
 						//turn team 1
 						int atk = Team1.at(i).getStr();
-						if ((Team1.at(i).getID()==1)&&(Team2.at(i).getID()==2)) {
+						if ((Team1.at(i).getID()==1)&&(Team2.at(i).getID()==3)) {
 							atk = atk*1.5;
 						}
-						if ((Team1.at(i).getID()==2)&&(Team2.at(i).getID()==3)) {
+						if ((Team1.at(i).getID()==3)&&(Team2.at(i).getID()==2)) {
 							atk = atk*1.5;
 						}
-						if ((Team1.at(i).getID()==3)&&(Team2.at(i).getID()==1)) {
+						if ((Team1.at(i).getID()==2)&&(Team2.at(i).getID()==1)) {
 							atk = atk*1.5;
 						}
 						int Rndom = rand() % 5;
-						if (true) {
+						if ((Rndom*10)>=Team2.at(i).getSpeed()) {
 							Team2.at(i).setHealth(Team2.at(i).getHealth()-(atk-Team2.at(i).getDef()));
 							WriteLog("El miembro "+to_string(i)+" del equipo 1 ataco por: "+to_string(atk)+"\n");
 							cout << ("El miembro "+to_string(i)+" del equipo 1 ataco por: "+to_string(atk)+"\n");
 							WriteLog("HP restante es: "+to_string(Team1.at(i).getHealth())+"\n");
 							cout << ("HP restante es: "+to_string(Team1.at(i).getHealth())+"\n");
+						} else {
+							cout << "FALLO EL ATAQUE \n";
+							WriteLog("Fallo el ataque");
 						}
 						//turn team 2
 						atk = Team2.at(i).getStr();
@@ -183,11 +191,15 @@ int main() {
 							atk = atk*1.5;
 						}
 						Rndom = rand() % 5;
-						if (true) {
+						if ((Rndom*10)>=Team1.at(i).getSpeed()) {
 							Team1.at(i).setHealth(Team1.at(i).getHealth()-(atk-Team1.at(i).getDef()));
 							WriteLog("El miembro "+to_string(i)+" del equipo 2 ataco por: "+to_string(atk)+"\n");
 							WriteLog("HP restante es: "+to_string(Team1.at(i).getHealth())+"\n");
+						} else {
+							cout << "FALLO EL ATAQUE \n";
+							WriteLog("Fallo el ataque \n");
 						}
+						
 						// check if dead
 						if (Team2.at(i).getHealth()<=0) {
 							Team1Wins++;
@@ -208,6 +220,9 @@ int main() {
 	}
 	for (int i = 0;i<vUnit->size();i++) {
 		delete vUnit->at(i);
+	}
+	for (int i = 0;i<vSquad->size();i++) {
+		delete vSquad->at(i);
 	}
 	delete vUnit;
 	delete vSquad;

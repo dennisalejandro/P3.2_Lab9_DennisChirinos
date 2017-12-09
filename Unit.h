@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 class Unit {
-	private: 
+	protected: 
 		string Special;
 		int Health;
 		int Def;
@@ -23,7 +23,7 @@ class Unit {
 		int getDef();
 		int getSpeed();
 		int getStr();
-		int getSpAtk();
+		virtual int getSpAtk();
 		virtual string toString();
 		virtual int getID();
 };

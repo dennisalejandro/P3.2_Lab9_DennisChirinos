@@ -8,6 +8,11 @@ using namespace std;
 		vector<Unit*>* v = new vector<Unit*>();
 		setEquipo(v);
 	}
+	Squad::~Squad() {
+		for (int i = 0;i<getEquipo()->size();i++) {
+			delete getEquipo()->at(i);
+		}
+	}
 	void Squad::setCapitan(Unit* a) {
 		this->Capitan = a;
 	}

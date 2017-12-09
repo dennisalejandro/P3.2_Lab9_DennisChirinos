@@ -10,6 +10,7 @@ class Squad {
 		vector<Unit*>* Equipo;
 	public: 
 		Squad(Unit*);
+		~Squad();
 		void  setCapitan(Unit*);
 		void  setEquipo(vector<Unit*>*);
 		Unit* getCapitan();

@@ -13,3 +13,7 @@ using namespace std;
 		str += to_string(getHealth())+", "+to_string(getDef())+", "+to_string(getSpeed())+", "+to_string(getStr());
 		return str;
 	}
+	int Chomp::getSpAtk() {
+		//setAtk(getAtk()+20);
+		return this->SpAtk;
+	}

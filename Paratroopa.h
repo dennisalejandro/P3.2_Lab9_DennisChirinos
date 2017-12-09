@@ -9,4 +9,5 @@ class Paratroopa : public Flying {
 		Paratroopa(string, int);
 		virtual int getType();
 		virtual string toString();
+		virtual int getSpAtk();
 };

@@ -9,4 +9,5 @@ class Bro : public Range {
 		Bro(string, int);
 		virtual int getType();
 		virtual string toString();
+		virtual int getSpAtk();
 };

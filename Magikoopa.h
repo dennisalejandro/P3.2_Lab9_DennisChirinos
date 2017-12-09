@@ -9,4 +9,5 @@ class Magikoopa : public Range {
 		Magikoopa(string, int);
 		virtual int getType();
 		virtual string toString();
+		virtual int getSpAtk();
 };
